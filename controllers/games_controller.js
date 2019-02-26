@@ -7,6 +7,7 @@ router.get("/", function(req, res) {
         var dataObj = {
             games: data
         };
+        console.log(dataObj)
         res.render("index", dataObj)
     });
 });
