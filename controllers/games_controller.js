@@ -12,6 +12,19 @@ router.get("/", function(req, res) {
     });
 });
 
+router.put("/api/games/:id", function(req, res) {
+    var condition = "id = " + req.params.id;
+    game.updateOne({
+        played: req.body.played
+    }, condition, function(result) {
+        if (result.changedRows == 0) {
+            return res.status(404).end();
+        } else {
+            res.status(200).end();
+        }
+    })
+})
+
 router.post("/api/games", function(req, res) {
     game.insertOne("game_name", req.body.name, function(result) {
         res.json({ id: result.insertId })

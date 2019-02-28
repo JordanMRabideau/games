@@ -7,6 +7,12 @@ var game = {
         });
     },
 
+    updateOne: function(objColVals, condition, cb) {
+        orm.updateOne("games", objColVals, condition, function(res) {
+            cb(res);
+        });
+    },
+
     insertOne: function(col, val, cb) {
         orm.insertOne("games", col, val, function(res) {
             cb(res);
