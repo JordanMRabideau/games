@@ -1,12 +1,11 @@
 <div class="container">
-    <div class="jumbotron">
-        <h1>Your Videogame Backlog!</h1>
+    <div class="jumbotron text-center">
+        <h1>Your Videogame Backlog</h1>
     </div>
 
-    <div class="row">
+    <div class="row border-bottom">
         <div class="col-md-6 border-right">
             <h2 class="colHead border-bottom">Your backlog</h2>
-
             <ul>
             {{#each games}}
                 {{#unless played}}
@@ -25,5 +24,22 @@
             {{/each}}
         </div>
     </div>
+
+    <br>
+
+    <form class="add-game">
+        <h4>Add a game</h4>
+        <div class="form-group">
+            <input class="form-control form-control-lg" id="name" name="name" type="text" placeholder="Enter the game's name">
+        </div>
+
+        <div class="form-group">
+            <label for="played">Played?</label><br>
+            <input type="radio" name="played" value="0" checked> Not played<br>
+            <input type="radio" name="played" value="1"> Played
+        </div>
+
+        <button type="submit">Add game</button>
+    </form>
 </div>
 
